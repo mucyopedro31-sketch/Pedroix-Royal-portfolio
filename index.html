@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pedro | Fantasy Portfolio ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0033cc;
+            --accent-color: #00ccff;
+            --secondary-color: #0066ff;
+            --bg-gradient: radial-gradient(circle at top, #001133, #0033cc, #000);
+            --nav-gradient: linear-gradient(135deg, #0033cc 0%, #00ccff 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%2300ccff" opacity="0.6"/><circle cx="16" cy="16" r="4" fill="%2300ccff"/></svg>') 16 16, auto;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Andika', sans-serif;
+            background: var(--bg-gradient);
+            color: white;
+            overflow-x: hidden;
+            padding-top: 70px;
+            transition: all 0.3s ease;
+        }
+
+        #particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+        }
+
+        #particles::before,
+        #particles::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow:
+                20px 40px white, 80px 120px white, 150px 260px white,
+                240px 400px white, 360px 90px white, 520px 500px white,
+                700px 200px white, 900px 350px white, 1100px 120px white,
+                1300px 450px white, 1500px 80px white;
+            animation: twinkle 4s infinite alternate;
+        }
+
+        #particles::after {
+            box-shadow:
+                60px 200px white, 260px 80px white, 480px 320px white,
+                700px 150px white, 920px 500px white, 1140px 220px white;
+            animation: twinkle 6s infinite alternate-reverse;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        #hoveringLight {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-color), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.15;
+            filter: blur(60px);
+            transform: translate(-50%, -50%);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: var(--nav-gradient);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            flex-wrap: wrap;
+            gap: 15px;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        .brand {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.6);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85em;
+            transition: 0.3s;
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Andika', sans-serif;
+            white-space: nowrap;
+        }
+
+        .nav-links button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .color-mode-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .mode-buttons {
+            display: flex;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            opacity: 0.6;
+        }
+
+        .mode-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mode-btn.active {
+            opacity: 1;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            animation: modeButtonPulse 0.5s ease-out;
+        }
+
+        @keyframes modeButtonPulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 15px;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section:hover {
+            box-shadow: 0 0 25px var(--accent-color);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .glow-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--secondary-color), var(--accent-color));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 4s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .img-frame {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 25px var(--accent-color);
+            transition: 0.3s;
+        }
+
+        .img-frame:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px var(--accent-color);
+        }
+
+        .img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-container {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            background: rgba(0, 204, 255, 0.3);
+            border: 2px solid var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 1em;
+        }
+
+        .carousel-btn:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .dot:hover {
+            transform: scale(1.2);
+        }
+
+        .intro {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: rgba(0, 204, 255, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        li:hover {
+            background: rgba(0, 204, 255, 0.2);
+            transform: translateX(10px);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .progress-section {
+            margin-top: 30px;
+        }
+
+        .progress-section p {
+            margin: 15px 0 8px 0;
+            font-weight: 600;
+        }
+
+        .progress {
+            width: 100%;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 15px;
+            transition: width 0.5s ease;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        input,
+        textarea {
+            padding: 12px 15px;
+            border: 2px solid var(--accent-color);
+            border-opacity: 0.3;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-radius: 8px;
+            font-family: 'Andika', sans-serif;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(0, 204, 255, 0.1);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        button[type="submit"],
+        .game-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border: none;
+            color: white;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1em;
+        }
+
+        button[type="submit"]:hover,
+        .game-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #66ffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .dark-mode {
+            background: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .section {
+            background: rgba(30, 30, 30, 0.8);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .dark-mode .navbar {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+
+        .rating-section {
+            margin: 20px 0;
+        }
+
+        .rating-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .star {
+            font-size: 2.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+
+        .star:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.2);
+        }
+
+        .star.active {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        #ratingText {
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .game-container {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            padding: 10px 20px;
+            background: rgba(0, 204, 255, 0.2);
+            border: 2px solid var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .difficulty-btn.active {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .difficulty-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .stat {
+            background: rgba(0, 204, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .card.flipped {
+            background: rgba(0, 204, 255, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .card.matched {
+            background: rgba(81, 207, 102, 0.2);
+            border-color: #51cf66;
+            cursor: default;
+        }
+
+        .card.matched:hover {
+            transform: none;
+        }
+
+        .game-message {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #51cf66;
+            margin: 20px 0;
+        }
+
+        /* ===== MUSIC SECTION STYLES ===== */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .song-card {
+            background: rgba(0, 204, 255, 0.1);
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .song-card:hover {
+            background: rgba(0, 204, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--accent-color);
+        }
+
+        .song-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .song-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin: 15px 0;
+            color: var(--accent-color);
+        }
+
+        .song-description {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+        }
+
+        .audio-player::-webkit-media-controls-panel {
+            background-color: rgba(0, 204, 255, 0.2);
+        }
+
+        .play-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border: none;
+            color: white;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.95em;
+            width: 100%;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .lyrics-preview {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            max-height: 150px;
+            overflow-y: auto;
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .nav-links {
+                gap: 8px;
+                font-size: 0.85em;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .img-frame {
+                width: 200px;
+                height: 200px;
+            }
+
+            .carousel {
+                height: 350px;
+            }
+
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .card {
+                font-size: 2em;
+            }
+
+            .music-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles"></div>
+    <div id="hoveringLight"></div>
+
+    <nav class="navbar">
+        <div class="brand">King Pedro ✨</div>
+        <ul class="nav-links">
+            <li><button onclick="showPage('home')">Home 🏠</button></li>
+            <li><button onclick="showPage('about')">About 🌟</button></li>
+            <li><button onclick="showPage('skills')">Skills 💡</button></li>
+            <li><button onclick="showPage('hobbies')">Hobbies 🎨</button></li>
+            <li><button onclick="showPage('music')">Music 🎵</button></li>
+            <li><button onclick="showPage('feedback')">Feedback 💬</button></li>
+            <li><button onclick="showPage('games')">Games 🎮</button></li>
+            <li><button onclick="showPage('contact')">Contact 📬</button></li>
+        </ul>
+        <div class="color-mode-switcher">
+            <div class="mode-buttons">
+                <button class="mode-btn active" onclick="setColorMode('starry-galaxy')" title="Starry Galaxy">✨</button>
+                <button class="mode-btn" onclick="setColorMode('ocean-blue')" title="Ocean Blue">🌊</button>
+                <button class="mode-btn" onclick="setColorMode('sunset')" title="Sunset">🌅</button>
+                <button class="mode-btn" onclick="setColorMode('jungle')" title="Jungle">🌿</button>
+            </div>
+        </div>
+        <button id="toggle" class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <header class="section hero">
+            <h1 class="glow-text">Welcome to My Fantasy Portfolio ✨</h1>
+            <p class="intro">
+                Imagine a place of learning and creativity — a small magical world.
+                I love science, technology, and art because they help ideas come alive.
+                This portfolio is my journey of growth, imagination, and discovery.
+                I want visitors to feel inspired and welcome.
+            </p>
+            <div class="img-frame">
+                <img src="https://i.postimg.cc/7C8CHs3R/Chat-GPT-Image-Mar-2-2026-05-48-07-PM.png" alt="My Picture">
+            </div>
+        </header>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="section">
+            <h2>About Me 🌟</h2>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/e2f76b52-0e54-43fd-bc03-c768df0610a3.png" alt="King Pedro with Portfolio">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/1df372cd-f2d3-410d-84e4-33c9c12f797c.png" alt="King Pedro Drawing">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/11592f30-cff7-4f50-9fc5-68479ca19f81.png" alt="King Pedro at Desk">
+                    </div>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="prevSlide()">← Previous</button>
+                    <button class="carousel-btn" onclick="nextSlide()">Next →</button>
+                </div>
+            </div>
+
+            <p>
+                My name is King Pedro, and I am a curious person who enjoys exploring new ideas and learning about the world around me. I am especially interested in science, technology, and art, because each of them allows me to understand, create, and express ideas in different ways.
+            </p>
+            <p>
+                One of the projects I am especially proud of is my biohabitat project, which focused on sustainability and the relationship between nature and design. Working on this project helped me develop important skills such as planning, problem-solving, and creative thinking. It also deepened my interest in exploring how science and creativity can work together to solve real-world challenges. In addition to this project, I also launched my own personal portfolio website, where I share my ideas, interests, and learning journey in science, technology, and art.
+            </p>
+            <p>
+                For me, learning is like an adventure — every step brings new discoveries and new opportunities to grow. In my free time, I enjoy coding, drawing, and creating new ideas. I hope that visitors who explore this portfolio can see my curiosity, passion for learning, and excitement for creating new things.
+            </p>
+        </section>
+    </div>
+
+    <!-- SKILLS PAGE -->
+    <div id="skills" class="page">
+        <section class="section">
+            <h2>Skills 💡</h2>
+            <ul>
+                <li>HTML 🧱</li>
+                <li>CSS 🎨</li>
+                <li>JavaScript ⚙️</li>
+                <li>Design ✏️</li>
+                <li>Problem Solving 🧠</li>
+            </ul>
+            <div class="progress-section">
+                <p>HTML</p>
+                <div class="progress"><div class="bar" style="width: 85%"></div></div>
+                <p>CSS</p>
+                <div class="progress"><div class="bar" style="width: 80%"></div></div>
+                <p>JavaScript</p>
+                <div class="progress"><div class="bar" style="width: 60%"></div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HOBBIES PAGE -->
+    <div id="hobbies" class="page">
+        <section class="section">
+            <h2>Hobbies 🎨</h2>
+            <ul>
+                <li>Drawing and art ✏️</li>
+                <li>Reading books 📚</li>
+                <li>Coding 💻</li>
+                <li>Swimming 🏊</li>
+                <li>Exploring ideas 💭</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- MUSIC PAGE -->
+    <div id="music" class="page">
+        <section class="section">
+            <h2>My Music Collection 🎵</h2>
+            <p>
+                Music is a powerful way to express emotions and tell stories. Here are some of my favorite songs that inspire me every day. 
+                Each song carries a unique message about growth, hope, and the beauty of life's journey.
+            </p>
+
+            <div class="music-grid">
+                <!-- Song 1 -->
+                <div class="song-card">
+                    <div class="song-icon">🔥</div>
+                    <div class="song-title">Feel the Fire Burning</div>
+                    <div class="song-description">An empowering anthem about courage and resilience</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/3a0e31ff-a8e5-475b-9e63-b78dabfe2be1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Feel the fire burning deep inside, stand your ground, let your heart be your guide. Every fall is just a lesson learned, every scar is proof of bridges burned..."
+                    </div>
+                </div>
+
+                <!-- Song 2 -->
+                <div class="song-card">
+                    <div class="song-icon">🌿</div>
+                    <div class="song-title">Walking Down Quiet Streets</div>
+                    <div class="song-description">A peaceful reflection on growth and self-discovery</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/6096c6bd-25a5-4993-a9c8-427582e77413.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Walking down these quiet streets, listen to the rhythm of my heartbeat. Every shadow, every ray of light, teaches me to see the world just right..."
+                    </div>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="song-card">
+                    <div class="song-icon">☀️</div>
+                    <div class="song-title">Wake Up, The Sun is Shining</div>
+                    <div class="song-description">A joyful celebration of life and new beginnings</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/cf6ed9a8-97d4-4b09-aff4-8efe5051aaa2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Wake up, the sun is shining bright. Step outside, everything feels right. Every dream you've held, every hope inside is waiting for you, no need to hide..."
+                    </div>
+                </div>
+
+                <!-- Song 4 -->
+                <div class="song-card">
+                    <div class="song-icon">🌙</div>
+                    <div class="song-title">A Quiet Road Beneath the Sky</div>
+                    <div class="song-description">An inspiring journey of perseverance and hope</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/926ddd23-6e7b-4b14-ad52-1e92f5bfac76.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "A quiet road beneath the sky, dreams are waiting far and high. Every step I take today leads me closer on my way. Mountains rise, but I won't fear..."
+                    </div>
+                </div>
+
+                <!-- Song 5 -->
+                <div class="song-card">
+                    <div class="song-icon">☕</div>
+                    <div class="song-title">Morning Coffee, Gentle Rain</div>
+                    <div class="song-description">A serene meditation on quiet moments and dreams</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/a0d386a3-2f73-434a-b15e-718cc56fbaab.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Morning coffee, gentle rain, quiet thoughts inside my brain. Notebook open, dreams inside, slowly turning on to life. City lights begin to glow..."
+                    </div>
+                </div>
+
+                <!-- Song 6 -->
+                <div class="song-card">
+                    <div class="song-icon">🌅</div>
+                    <div class="song-title">Sunrise Shining on the Street</div>
+                    <div class="song-description">A rhythmic celebration of joy and movement</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/5232551b-45bc-4f08-a817-6ca133813ed2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Sunrise shining on the street, feel the rhythm in my feet. Every heartbeat starts to play, like a drum that leads the way. Voices laughing in the air..."
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FEEDBACK PAGE -->
+    <div id="feedback" class="page">
+        <section class="section">
+            <h2>Share Your Feedback 💬</h2>
+            <p>I'd love to hear what you think about my portfolio! Your feedback helps me improve.</p>
+            <form id="feedbackForm">
+                <input type="text" id="feedbackName" placeholder="Your Name" required>
+                <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+                <div class="rating-section">
+                    <label>Rate My Portfolio ⭐</label>
+                    <div class="star-rating">
+                        <span class="star" data-value="1">⭐</span>
+                        <span class="star" data-value="2">⭐</span>
+                        <span class="star" data-value="3">⭐</span>
+                        <span class="star" data-value="4">⭐</span>
+                        <span class="star" data-value="5">⭐</span>
+                    </div>
+                    <input type="hidden" id="feedbackRating" value="0">
+                    <p id="ratingText">Select a rating</p>
+                </div>
+                <textarea id="feedbackMessage" placeholder="Your Feedback (min 10 characters)" required></textarea>
+                <button type="submit">Send Feedback ✨</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- GAMES PAGE -->
+    <div id="games" class="page">
+        <section class="section game-container">
+            <h2>Emoji Memory Game 🎮</h2>
+            <p>Test your memory! Match the emoji pairs. Choose your difficulty level and see how fast you can win!</p>
+            <div class="game-controls">
+                <button class="difficulty-btn active" data-difficulty="easy" onclick="setDifficulty('easy')">Easy (4 pairs)</button>
+                <button class="difficulty-btn" data-difficulty="medium" onclick="setDifficulty('medium')">Medium (8 pairs)</button>
+                <button class="difficulty-btn" data-difficulty="hard" onclick="setDifficulty('hard')">Hard (12 pairs)</button>
+                <button class="game-btn" onclick="restartGame()">🔄 Restart</button>
+            </div>
+            <div class="game-stats">
+                <div class="stat">
+                    <div class="stat-label">Matches</div>
+                    <div class="stat-value" id="matches">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Attempts</div>
+                    <div class="stat-value" id="attempts">0</div>
+                </div>
+            </div>
+            <div id="gameMessage" class="game-message"></div>
+            <div id="gameBoard" class="game-board"></div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="section">
+            <h2>Get in Touch 📬</h2>
+            <p>
+                Email:
+                <a href="mailto:mucyo.pedro31@ntare-louisenlund.org">
+                    mucyo.pedro31@ntare-louisenlund.org
+                </a>
+            </p>
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message 📧</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>Thank you for visiting ✨</p>
+    </footer>
+
+    <script>
+        // ===== CAROUSEL FUNCTIONALITY =====
+        let currentSlideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (index >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = slides.length - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+
+            playClickSound();
+        }
+
+        function nextSlide() {
+            showSlide(currentSlideIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlideIndex - 1);
+        }
+
+        function currentSlide(index) {
+            showSlide(index);
+        }
+
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        // ===== SOUND EFFECTS =====
+        function playClickSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function playHoverSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 600;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.08);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.08);
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+                playClickSound();
+            }
+        });
+
+        const interactiveElements = document.querySelectorAll('button, a, input, textarea, .star, li');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', playHoverSound);
+        });
+
+        // ===== HOVERING LIGHT EFFECT =====
+        const hoveringLight = document.getElementById('hoveringLight');
+        document.addEventListener('mousemove', (e) => {
+            hoveringLight.style.left = e.clientX + 'px';
+            hoveringLight.style.top = e.clientY + 'px';
+        });
+
+        // ===== PAGE NAVIGATION =====
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // ===== COLOR MODES =====
+        const colorModes = {
+            'starry-galaxy': {
+                primary: '#0033cc',
+                accent: '#00ccff',
+                secondary: '#0066ff',
+                background: 'radial-gradient(circle at top, #001133, #0033cc, #000)',
+                navGradient: 'linear-gradient(135deg, #0033cc 0%, #00ccff 100%)',
+            },
+            'ocean-blue': {
+                primary: '#0052cc',
+                accent: '#00d4ff',
+                secondary: '#0099ff',
+                background: 'linear-gradient(135deg, #001a4d 0%, #003d99 50%, #0066cc 100%)',
+                navGradient: 'linear-gradient(135deg, #0052cc 0%, #0099ff 100%)',
+            },
+            'sunset': {
+                primary: '#ff6b35',
+                accent: '#ffeb3b',
+                secondary: '#ff8c42',
+                background: 'linear-gradient(135deg, #ff6b35 0%, #ff8c42 25%, #ffa500 50%, #ff6b9d 75%, #c44569 100%)',
+                navGradient: 'linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%)',
+            },
+            'jungle': {
+                primary: '#2d5a3d',
+                accent: '#7fff00',
+                secondary: '#4a9d6f',
+                background: 'linear-gradient(135deg, #1a3a2a 0%, #2d5a3d 50%, #1f4d2f 100%)',
+                navGradient: 'linear-gradient(135deg, #2d5a3d 0%, #4a9d6f 100%)',
+            }
+        };
+
+        function setColorMode(mode) {
+            const colors = colorModes[mode];
+
+            document.documentElement.style.setProperty('--primary-color', colors.primary);
+            document.documentElement.style.setProperty('--accent-color', colors.accent);
+            document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+            document.documentElement.style.setProperty('--bg-gradient', colors.background);
+            document.documentElement.style.setProperty('--nav-gradient', colors.navGradient);
+
+            document.body.style.background = colors.background;
+            document.querySelector('.navbar').style.background = colors.navGradient;
+
+            const buttons = document.querySelectorAll('.mode-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            localStorage.setItem('colorMode', mode);
+            playClickSound();
+        }
+
+        // ===== DARK MODE =====
+        function toggleDarkMode() {
+            const toggle = document.getElementById('toggle');
+            document.body.classList.toggle('dark-mode');
+            toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            playClickSound();
+        }
+
+        // Load saved preferences
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('toggle').textContent = '☀️';
+        }
+
+        const savedMode = localStorage.getItem('colorMode') || 'starry-galaxy';
+        const colors = colorModes[savedMode];
+        document.documentElement.style.setProperty('--primary-color', colors.primary);
+        document.documentElement.style.setProperty('--accent-color', colors.accent);
+        document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+        document.documentElement.style.setProperty('--bg-gradient', colors.background);
+        document.documentElement.style.setProperty('--nav-gradient', colors.navGradient);
+        document.body.style.background = colors.background;
+        document.querySelector('.navbar').style.background = colors.navGradient;
+
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        modeButtons.forEach((btn, index) => {
+            btn.classList.remove('active');
+            if (index === Object.keys(colorModes).indexOf(savedMode)) {
+                btn.classList.add('active');
+            }
+        });
+
+        // ===== FEEDBACK FORM =====
+        document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('feedbackName').value.trim();
+            const email = document.getElementById('feedbackEmail').value.trim();
+            const rating = document.getElementById('feedbackRating').value;
+            const message = document.getElementById('feedbackMessage').value.trim();
+
+            let isValid = true;
+
+            if (name.length < 2) {
+                alert('Name must be at least 2 characters');
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email');
+                isValid = false;
+            }
+
+            if (rating === '0') {
+                alert('Please select a rating');
+                isValid = false;
+            }
+
+            if (message.length < 10) {
+                alert('Feedback must be at least 10 characters');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert(`✅ Thank you ${name}! Your feedback has been received!`);
+                document.getElementById('feedbackForm').reset();
+                document.getElementById('feedbackRating').value = '0';
+                document.getElementById('ratingText').textContent = 'Select a rating';
+                document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+            }
+        });
+
+        // Star rating
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-value');
+                document.getElementById('feedbackRating').value = rating;
+                document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+                for (let i = 0; i < rating; i++) {
+                    document.querySelectorAll('.star')[i].classList.add('active');
+                }
+                const ratingTexts = {
+                    1: '⭐ Not Great',
+                    2: '⭐⭐ Could Be Better',
+                    3: '⭐⭐⭐ Good!',
+                    4: '⭐⭐⭐⭐ Very Good!',
+                    5: '⭐⭐⭐⭐⭐ Excellent!'
+                };
+                document.getElementById('ratingText').textContent = ratingTexts[rating];
+            });
+        });
+
+        // ===== CONTACT FORM =====
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('✅ Message sent successfully!');
+            document.getElementById('contactForm').reset();
+        });
+
+        // ===== EMOJI MEMORY GAME =====
+        class EmojiMemoryGame {
+            constructor() {
+                this.emojis = ['🎮', '🎨', '🎭', '🎪', '🎯', '🎲', '🎸', '🎺', '🎻', '🎬', '🎤', '🎧'];
+                this.cards = [];
+                this.flipped = [];
+                this.matched = [];
+                this.attempts = 0;
+                this.matches = 0;
+                this.difficulty = 'easy';
+                this.startTime = null;
+                this.gameActive = true;
+                this.setupGame();
+            }
+
+            setupGame() {
+                const gameBoard = document.getElementById('gameBoard');
+                gameBoard.innerHTML = '';
+
+                this.cards = [];
+                this.flipped = [];
+                this.matched = [];
+                this.attempts = 0;
+                this.matches = 0;
+                this.gameActive = true;
+                this.startTime = Date.now();
+
+                let pairCount = 4;
+                if (this.difficulty === 'medium') pairCount = 8;
+                if (this.difficulty === 'hard') pairCount = 12;
+
+                const gameEmojis = [];
+                for (let i = 0; i < pairCount; i++) {
+                    gameEmojis.push(this.emojis[i % this.emojis.length]);
+                    gameEmojis.push(this.emojis[i % this.emojis.length]);
+                }
+
+                this.cards = gameEmojis.sort(() => Math.random() - 0.5);
+
+                this.cards.forEach((emoji, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.dataset.emoji = emoji;
+                    card.textContent = '?';
+                    card.addEventListener('click', () => this.flipCard(card));
+                    gameBoard.appendChild(card);
+                });
+
+                this.updateStats();
+            }
+
+            flipCard(card) {
+                if (!this.gameActive || this.flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) {
+                    return;
+                }
+
+                card.classList.add('flipped');
+                card.textContent = card.dataset.emoji;
+                this.flipped.push(card);
+
+                if (this.flipped.length === 2) {
+                    this.attempts++;
+                    this.updateStats();
+                    this.checkMatch();
+                }
+            }
+
+            checkMatch() {
+                const [card1, card2] = this.flipped;
+
+                if (card1.dataset.emoji === card2.dataset.emoji) {
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    this.matched.push(card1, card2);
+                    this.matches++;
+                    this.flipped = [];
+                    this.updateStats();
+
+                    if (this.matched.length === this.cards.length) {
+                        this.endGame();
+                    }
+                } else {
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        card1.textContent = '?';
+                        card2.textContent = '?';
+                        this.flipped = [];
+                    }, 1000);
+                }
+            }
+
+            updateStats() {
+                document.getElementById('matches').textContent = this.matches;
+                document.getElementById('attempts').textContent = this.attempts;
+            }
+
+            endGame() {
+                this.gameActive = false;
+                const timeElapsed = Math.floor((Date.now() - this.startTime) / 1000);
+                document.getElementById('gameMessage').textContent = `🎉 You won! Time: ${timeElapsed}s | Attempts: ${this.attempts}`;
+            }
+        }
+
+        let game = new EmojiMemoryGame();
+
+        function setDifficulty(difficulty) {
+            game.difficulty = difficulty;
+            game.setupGame();
+
+            const buttons = document.querySelectorAll('.difficulty-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            playClickSound();
+        }
+
+        function restartGame() {
+            game.setupGame();
+            playClickSound();
+        }
+    </script>
+
+</body>
+</html>
