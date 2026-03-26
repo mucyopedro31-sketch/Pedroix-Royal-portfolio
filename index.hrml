@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pedro | Fantasy Portfolio ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="particles"></div>
+    <div id="hoveringLight"></div>
+
+    <nav class="navbar">
+        <div class="brand">King Pedro ✨</div>
+        <ul class="nav-links">
+            <li><button onclick="showPage('home')">Home 🏠</button></li>
+            <li><button onclick="showPage('about')">About 🌟</button></li>
+            <li><button onclick="showPage('skills')">Skills 💡</button></li>
+            <li><button onclick="showPage('hobbies')">Hobbies 🎨</button></li>
+            <li><button onclick="showPage('music')">Music 🎵</button></li>
+            <li><button onclick="showPage('feedback')">Feedback 💬</button></li>
+            <li><button onclick="showPage('games')">Games 🎮</button></li>
+            <li><button onclick="showPage('contact')">Contact 📬</button></li>
+        </ul>
+        <div class="color-mode-switcher">
+            <div class="mode-buttons">
+                <button class="mode-btn active" onclick="setColorMode('starry-galaxy')" title="Starry Galaxy">✨</button>
+                <button class="mode-btn" onclick="setColorMode('ocean-blue')" title="Ocean Blue">🌊</button>
+                <button class="mode-btn" onclick="setColorMode('sunset')" title="Sunset">🌅</button>
+                <button class="mode-btn" onclick="setColorMode('jungle')" title="Jungle">🌿</button>
+            </div>
+        </div>
+        <button id="toggle" class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <header class="section hero">
+            <h1 class="glow-text">Welcome to My Fantasy Portfolio ✨</h1>
+            <p class="intro">
+                Imagine a place of learning and creativity — a small magical world.
+                I love science, technology, and art because they help ideas come alive.
+                This portfolio is my journey of growth, imagination, and discovery.
+                I want visitors to feel inspired and welcome.
+            </p>
+            <div class="img-frame">
+                <img src="https://i.postimg.cc/7C8CHs3R/Chat-GPT-Image-Mar-2-2026-05-48-07-PM.png" alt="My Picture">
+            </div>
+        </header>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="section">
+            <h2>About Me 🌟</h2>
+
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/e2f76b52-0e54-43fd-bc03-c768df0610a3.png" alt="King Pedro with Portfolio">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/1df372cd-f2d3-410d-84e4-33c9c12f797c.png" alt="King Pedro Drawing">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/11592f30-cff7-4f50-9fc5-68479ca19f81.png" alt="King Pedro at Desk">
+                    </div>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="prevSlide()">← Previous</button>
+                    <button class="carousel-btn" onclick="nextSlide()">Next →</button>
+                </div>
+            </div>
+
+            <p>
+                My name is King Pedro, and I am a curious person who enjoys exploring new ideas and learning about the world around me. I am especially interested in science, technology, and art, because each of them allows me to understand, create, and express ideas in different ways.
+            </p>
+            <p>
+                One of the projects I am especially proud of is my biohabitat project, which focused on sustainability and the relationship between nature and design. Working on this project helped me develop important skills such as planning, problem-solving, and creative thinking. It also deepened my interest in exploring how science and creativity can work together to solve real-world challenges. In addition to this project, I also launched my own personal portfolio website, where I share my ideas, interests, and learning journey in science, technology, and art.
+            </p>
+            <p>
+                For me, learning is like an adventure — every step brings new discoveries and new opportunities to grow. In my free time, I enjoy coding, drawing, and creating new ideas. I hope that visitors who explore this portfolio can see my curiosity, passion for learning, and excitement for creating new things.
+            </p>
+        </section>
+    </div>
+
+    <!-- SKILLS PAGE -->
+    <div id="skills" class="page">
+        <section class="section">
+            <h2>Skills 💡</h2>
+            <ul>
+                <li>HTML 🧱</li>
+                <li>CSS 🎨</li>
+                <li>JavaScript ⚙️</li>
+                <li>Design ✏️</li>
+                <li>Problem Solving 🧠</li>
+            </ul>
+            <div class="progress-section">
+                <p>HTML</p>
+                <div class="progress"><div class="bar" style="width: 85%"></div></div>
+                <p>CSS</p>
+                <div class="progress"><div class="bar" style="width: 80%"></div></div>
+                <p>JavaScript</p>
+                <div class="progress"><div class="bar" style="width: 60%"></div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HOBBIES PAGE -->
+    <div id="hobbies" class="page">
+        <section class="section">
+            <h2>Hobbies 🎨</h2>
+            <ul>
+                <li>Drawing and art ✏️</li>
+                <li>Reading books 📚</li>
+                <li>Coding 💻</li>
+                <li>Swimming 🏊</li>
+                <li>Exploring ideas 💭</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- MUSIC PAGE -->
+    <div id="music" class="page">
+        <section class="section">
+            <h2>My Music Collection 🎵</h2>
+            <p>
+                Music is a powerful way to express emotions and tell stories. Here are some of my favorite songs that inspire me every day. 
+                Each song carries a unique message about growth, hope, and the beauty of life's journey.
+            </p>
+
+            <div class="music-grid">
+                <!-- Song 1 -->
+                <div class="song-card">
+                    <div class="song-icon">🔥</div>
+                    <div class="song-title">Feel the Fire Burning</div>
+                    <div class="song-description">An empowering anthem about courage and resilience</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/3a0e31ff-a8e5-475b-9e63-b78dabfe2be1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Feel the fire burning deep inside, stand your ground, let your heart be your guide. Every fall is just a lesson learned, every scar is proof of bridges burned..."
+                    </div>
+                </div>
+
+                <!-- Song 2 -->
+                <div class="song-card">
+                    <div class="song-icon">🌿</div>
+                    <div class="song-title">Walking Down Quiet Streets</div>
+                    <div class="song-description">A peaceful reflection on growth and self-discovery</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/6096c6bd-25a5-4993-a9c8-427582e77413.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Walking down these quiet streets, listen to the rhythm of my heartbeat. Every shadow, every ray of light, teaches me to see the world just right..."
+                    </div>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="song-card">
+                    <div class="song-icon">☀️</div>
+                    <div class="song-title">Wake Up, The Sun is Shining</div>
+                    <div class="song-description">A joyful celebration of life and new beginnings</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/cf6ed9a8-97d4-4b09-aff4-8efe5051aaa2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Wake up, the sun is shining bright. Step outside, everything feels right. Every dream you've held, every hope inside is waiting for you, no need to hide..."
+                    </div>
+                </div>
+
+                <!-- Song 4 -->
+                <div class="song-card">
+                    <div class="song-icon">🌙</div>
+                    <div class="song-title">A Quiet Road Beneath the Sky</div>
+                    <div class="song-description">An inspiring journey of perseverance and hope</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/926ddd23-6e7b-4b14-ad52-1e92f5bfac76.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "A quiet road beneath the sky, dreams are waiting far and high. Every step I take today leads me closer on my way. Mountains rise, but I won't fear..."
+                    </div>
+                </div>
+
+                <!-- Song 5 -->
+                <div class="song-card">
+                    <div class="song-icon">☕</div>
+                    <div class="song-title">Morning Coffee, Gentle Rain</div>
+                    <div class="song-description">A serene meditation on quiet moments and dreams</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/a0d386a3-2f73-434a-b15e-718cc56fbaab.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Morning coffee, gentle rain, quiet thoughts inside my brain. Notebook open, dreams inside, slowly turning on to life. City lights begin to glow..."
+                    </div>
+                </div>
+
+                <!-- Song 6 -->
+                <div class="song-card">
+                    <div class="song-icon">🌅</div>
+                    <div class="song-title">Sunrise Shining on the Street</div>
+                    <div class="song-description">A rhythmic celebration of joy and movement</div>
+                    <audio class="audio-player" controls>
+                        <source src="https://fcsqbqyomghwjhlnmvgn.supabase.co/storage/v1/object/public/attachments/5232551b-45bc-4f08-a817-6ca133813ed2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="lyrics-preview">
+                        "Sunrise shining on the street, feel the rhythm in my feet. Every heartbeat starts to play, like a drum that leads the way. Voices laughing in the air..."
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FEEDBACK PAGE -->
+    <div id="feedback" class="page">
+        <section class="section">
+            <h2>Share Your Feedback 💬</h2>
+            <p>I'd love to hear what you think about my portfolio! Your feedback helps me improve.</p>
+            <form id="feedbackForm">
+                <input type="text" id="feedbackName" placeholder="Your Name" required>
+                <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+                <div class="rating-section">
+                    <label>Rate My Portfolio ⭐</label>
+                    <div class="star-rating">
+                        <span class="star" data-value="1">⭐</span>
+                        <span class="star" data-value="2">⭐</span>
+                        <span class="star" data-value="3">⭐</span>
+                        <span class="star" data-value="4">⭐</span>
+                        <span class="star" data-value="5">⭐</span>
+                    </div>
+                    <input type="hidden" id="feedbackRating" value="0">
+                    <p id="ratingText">Select a rating</p>
+                </div>
+                <textarea id="feedbackMessage" placeholder="Your Feedback (min 10 characters)" required></textarea>
+                <button type="submit">Send Feedback ✨</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- GAMES PAGE -->
+    <div id="games" class="page">
+        <section class="section game-container">
+            <h2>Emoji Memory Game 🎮</h2>
+            <p>Test your memory! Match the emoji pairs. Choose your difficulty level and see how fast you can win!</p>
+            <div class="game-controls">
+                <button class="difficulty-btn active" data-difficulty="easy" onclick="setDifficulty('easy')">Easy (4 pairs)</button>
+                <button class="difficulty-btn" data-difficulty="medium" onclick="setDifficulty('medium')">Medium (8 pairs)</button>
+                <button class="difficulty-btn" data-difficulty="hard" onclick="setDifficulty('hard')">Hard (12 pairs)</button>
+                <button class="game-btn" onclick="restartGame()">🔄 Restart</button>
+            </div>
+            <div class="game-stats">
+                <div class="stat">
+                    <div class="stat-label">Matches</div>
+                    <div class="stat-value" id="matches">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Attempts</div>
+                    <div class="stat-value" id="attempts">0</div>
+                </div>
+            </div>
+            <div id="gameMessage" class="game-message"></div>
+            <div id="gameBoard" class="game-board"></div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="section">
+            <h2>Get in Touch 📬</h2>
+            <p>
+                Email:
+                <a href="mailto:mucyo.pedro31@ntare-louisenlund.org">
+                    mucyo.pedro31@ntare-louisenlund.org
+                </a>
+            </p>
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message 📧</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>Thank you for visiting ✨</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
